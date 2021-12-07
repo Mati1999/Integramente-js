@@ -17,7 +17,7 @@ class Libro {
  */
 class Libreria {
     constructor(libros) {
-        this.libros = libros;
+        this.libros = [...libros];
     }
     ordenarPrecio(orden) {
         let compararPrecio = (a,b) => {
@@ -29,7 +29,7 @@ class Libreria {
                 return a.precio + b.precio;
             }
         }
-        let ordenado = libros.sort(compararPrecio);
+        let ordenado = this.libros.sort(compararPrecio);
         ordenado.forEach(clave => document.write(`${clave.nombre} : $${clave.precio} <br>`))
 
     }
@@ -65,4 +65,5 @@ Libros:
     4) ${libro4.nombre}: $${libro4.precio}
 seleccione si prefiere ver sus precios ordenados de manera creciente (+) o decreciente (-).`)
 
-libreria1.ordenarPrecio(orden)
+libreria1.ordenarPrecio(orden);
+console.log(libros);
